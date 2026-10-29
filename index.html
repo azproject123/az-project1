@@ -6,17 +6,27 @@
     <title>A-Z Project</title>
     <style>
         :root {
-            --bg-color: #0f172a;
-            --card-bg: #1e293b;
+            --bg-color: #020617;
+            --grid-color: rgba(59, 130, 246, 0.03);
+            --card-bg: rgba(30, 41, 59, 0.5);
+            --card-border: rgba(255, 255, 255, 0.08);
             --text-main: #f8fafc;
             --text-muted: #94a3b8;
-            --primary: #3b82f6;
-            --primary-hover: #2563eb;
+            
+            /* Game Themes */
+            --game1-color: #3b82f6;
+            --game1-hover: #1d4ed8;
+            --game2-color: #ec4899;
+            --game2-hover: #be185d;
         }
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             background-color: var(--bg-color);
+            background-image: 
+                linear-gradient(var(--grid-color) 1px, transparent 1px),
+                linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+            background-size: 20px 20px;
             color: var(--text-main);
             margin: 0;
             display: flex;
@@ -24,12 +34,18 @@
             align-items: center;
             justify-content: center;
             min-height: 100vh;
+            overflow-x: hidden;
         }
 
         h1 {
-            font-size: 2.5rem;
-            margin-bottom: 2rem;
+            font-size: 2.75rem;
+            font-weight: 800;
+            margin: 0 0 2.5rem 0;
             text-align: center;
+            letter-spacing: -0.04em;
+            background: linear-gradient(135deg, #fff 0%, #94a3b8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .container {
@@ -37,60 +53,70 @@
             gap: 2rem;
             max-width: 800px;
             width: 100%;
-            padding: 0 1rem;
+            padding: 0 1.5rem;
             box-sizing: border-box;
         }
 
         .card {
-            background-color: var(--card-bg);
-            border-radius: 12px;
-            padding: 2rem;
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-radius: 20px;
+            padding: 2.5rem 2rem;
             flex: 1;
             display: flex;
             flex-direction: column;
             align-items: center;
             text-align: center;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        .card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+        /* Card Custom Glow States */
+        .card-g1:hover {
+            transform: translateY(-6px);
+            border-color: rgba(59, 130, 246, 0.4);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7), 0 0 40px -10px rgba(59, 130, 246, 0.25);
+        }
+
+        .card-g2:hover {
+            transform: translateY(-6px);
+            border-color: rgba(236, 72, 153, 0.4);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7), 0 0 40px -10px rgba(236, 72, 153, 0.25);
         }
 
         .card h2 {
-            margin-top: 0;
-            font-size: 1.75rem;
-        }
-
-        .card p {
-            color: var(--text-muted);
-            line-height: 1.5;
-            margin-bottom: 2rem;
-            flex-grow: 1;
+            margin: 0 0 2rem 0;
+            font-size: 1.85rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
         }
 
         .btn {
-            background-color: var(--primary);
             color: white;
             text-decoration: none;
-            padding: 0.75rem 1.5rem;
-            border-radius: 6px;
+            padding: 0.85rem 1.5rem;
+            border-radius: 10px;
             font-weight: 600;
-            transition: background-color 0.2s ease;
+            font-size: 1.05rem;
+            transition: all 0.2s ease;
             width: 100%;
             box-sizing: border-box;
+            display: inline-block;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
         }
 
-        .btn:hover {
-            background-color: var(--primary-hover);
-        }
+        .card-g1 .btn { background-color: var(--game1-color); }
+        .card-g1 .btn:hover { background-color: var(--game1-hover); transform: scale(1.02); }
+
+        .card-g2 .btn { background-color: var(--game2-color); }
+        .card-g2 .btn:hover { background-color: var(--game2-hover); transform: scale(1.02); }
 
         @media (max-width: 600px) {
-            .container {
-                flex-direction: column;
-            }
+            body { padding: 2rem 0; }
+            .container { flex-direction: column; gap: 1.5rem; }
+            h1 { font-size: 2.25rem; margin-bottom: 2rem; }
+            .card { padding: 2rem 1.5rem; }
         }
     </style>
 </head>
@@ -100,13 +126,13 @@
 
     <div class="container">
         <!-- Game 1 Card -->
-        <div class="card">
+        <div class="card card-g1">
             <h2>Football Bros</h2>
             <a href="./game1/" class="btn">Play</a>
         </div>
 
         <!-- Game 2 Card -->
-        <div class="card">
+        <div class="card card-g2">
             <h2>Retro Bowl</h2>
             <a href="./game2/" class="btn">Play</a>
         </div>
