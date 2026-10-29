@@ -83,16 +83,15 @@
             text-shadow: 0 0 8px rgba(239, 68, 68, 0.5);
         }
 
-        /* Balanced Dynamic Layout Grid */
+        /* Adjusted Layout Grid to Force 4 Columns on Large Displays */
         .container {
             display: grid;
-            /* Flexibly sizes and shifts content blocks together dynamically */
-            grid-template-columns: repeat(auto-fit, minmax(200px, 220px));
-            gap: 2.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1.75rem;
             justify-content: center;
             align-content: center;
             width: 100%;
-            max-width: 1000px;
+            max-width: 1100px;
             margin: 0 auto;
             box-sizing: border-box;
         }
@@ -212,7 +211,10 @@
         }
 
         @media (max-width: 750px) {
-            .container { gap: 1.5rem; }
+            .container { 
+                grid-template-columns: repeat(2, 1fr); /* 2x2 grid format for smaller mobile devices */
+                gap: 1.25rem; 
+            }
             h1 { font-size: 2.5rem; }
         }
     </style>
