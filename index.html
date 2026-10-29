@@ -41,125 +41,30 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: flex-start;
+            justify-content: flex-start; /* Aligns layout elements from the top down */
             min-height: 100vh;
             overflow-x: hidden;
             padding: 2rem 1.5rem;
             box-sizing: border-box;
         }
 
-        /* Access Gate Overlay */
-        #password-gate {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: #05050f;
-            background-image: 
-                linear-gradient(var(--grid-color) 2px, transparent 2px),
-                linear-gradient(90deg, var(--grid-color) 2px, transparent 2px);
-            background-size: 30px 30px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 9999;
-            padding: 1rem;
-            box-sizing: border-box;
-        }
-
-        .gate-box {
-            background: var(--card-bg);
-            border: 1px solid var(--card-border);
-            border-radius: 16px;
-            padding: 2.5rem;
-            max-width: 380px;
-            width: 100%;
-            text-align: center;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.9);
-        }
-
-        .gate-box h2 {
-            margin: 0 0 0.5rem 0;
-            font-size: 1.75rem;
-            letter-spacing: 0.05em;
-            text-transform: uppercase;
-            text-shadow: 0 0 10px rgba(239, 68, 68, 0.5);
-            color: #ffffff;
-        }
-
-        .gate-box p {
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            margin: 0 0 1.5rem 0;
-        }
-
-        .gate-box input {
-            width: 100%;
-            padding: 0.75rem 1rem;
-            background: rgba(0, 0, 0, 0.4);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 8px;
-            color: white;
-            font-size: 1rem;
-            text-align: center;
-            letter-spacing: 0.1em;
-            box-sizing: border-box;
-            margin-bottom: 1.25rem;
-            outline: none;
-            transition: border-color 0.3s ease;
-        }
-
-        .gate-box input:focus {
-            border-color: #ef4444;
-            box-shadow: 0 0 10px rgba(239, 68, 68, 0.2);
-        }
-
-        .gate-box .gate-btn {
-            background: #ef4444;
-            color: white;
-            border: none;
-            padding: 0.75rem 1.5rem;
-            width: 100%;
-            border-radius: 8px;
-            font-weight: 700;
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            cursor: pointer;
-            box-shadow: 0 0 15px rgba(239, 68, 68, 0.4);
-            transition: all 0.3s ease;
-        }
-
-        .gate-box .gate-btn:hover {
-            background: #dc2626;
-            box-shadow: 0 0 25px rgba(239, 68, 68, 0.6);
-        }
-
-        .error-msg {
-            color: #ef4444;
-            font-size: 0.85rem;
-            margin-top: 0.75rem;
-            display: none;
-            font-weight: 600;
-        }
-
         /* Pushed Header To Extreme Top */
         .header-container {
             text-align: center;
             margin-top: 1rem;
-            margin-bottom: 3rem;
+            margin-bottom: 4rem;
             position: relative;
             width: 100%;
         }
 
         h1 {
-            font-size: 3rem;
+            font-size: 3.25rem;
             font-weight: 900;
             margin: 0;
             text-transform: uppercase;
             letter-spacing: 0.12em;
             color: #ffffff;
+            /* Creative Crimson Red Neon Glow */
             text-shadow: 
                 0 0 7px #ef4444,
                 0 0 15px #ef4444,
@@ -178,25 +83,25 @@
             text-shadow: 0 0 8px rgba(239, 68, 68, 0.5);
         }
 
-        /* Compacted Layout Grid to Support Future Scaling */
+        /* Adjusted Layout Grid to Force 4 Columns on Large Displays */
         .container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 170px));
-            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1.75rem;
             justify-content: center;
             align-content: center;
             width: 100%;
-            max-width: 1200px;
+            max-width: 1100px;
             margin: 0 auto;
             box-sizing: border-box;
         }
 
-        /* Smaller, More Compact Cards */
+        /* Compact Creative Cards */
         .card {
             background: var(--card-bg);
             border: 1px solid var(--card-border);
-            border-radius: 12px;
-            padding: 1.5rem 1rem 1.25rem 1rem;
+            border-radius: 14px;
+            padding: 2.25rem 1.25rem 1.75rem 1.25rem;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -211,12 +116,12 @@
         .card::before {
             content: '';
             position: absolute;
-            top: -25px;
-            right: -25px;
-            width: 60px;
-            height: 60px;
+            top: -20px;
+            right: -20px;
+            width: 70px;
+            height: 70px;
             border-radius: 50px;
-            opacity: 0.05;
+            opacity: 0.06;
             transition: transform 0.6s ease, opacity 0.4s ease;
         }
         .card-g1::before { background: var(--game1-color); border: 4px dashed var(--game1-color); }
@@ -226,10 +131,10 @@
 
         /* Minimalist Abstract Graphic Blocks */
         .game-graphic {
-            width: 32px;
-            height: 3px;
+            width: 44px;
+            height: 4px;
             border-radius: 2px;
-            margin-bottom: 1.25rem;
+            margin-bottom: 1.5rem;
             transition: all 0.3s ease;
         }
         .card-g1 .game-graphic { background: var(--game1-color); box-shadow: 0 0 10px var(--game1-color); }
@@ -238,21 +143,21 @@
         .card-g4 .game-graphic { background: var(--game4-color); box-shadow: 0 0 10px var(--game4-color); }
 
         .card h2 {
-            margin: 0 0 1.25rem 0;
-            font-size: 1.1rem;
+            margin: 0 0 1.75rem 0;
+            font-size: 1.25rem;
             font-weight: 700;
             letter-spacing: -0.01em;
             color: #e2e8f0;
         }
 
-        /* Tightened Mini-Buttons */
+        /* Clean Mini-Buttons with Inset Glow effects */
         .btn {
             color: white;
             text-decoration: none;
-            padding: 0.5rem 0.75rem;
-            border-radius: 6px;
+            padding: 0.65rem 1rem;
+            border-radius: 8px;
             font-weight: 700;
-            font-size: 0.8rem;
+            font-size: 0.85rem;
             text-transform: uppercase;
             letter-spacing: 0.05em;
             transition: all 0.3s ease;
@@ -265,85 +170,91 @@
 
         /* Interactive Hover & Glow Designs */
         .card-g1:hover {
-            transform: translateY(-6px) scale(1.02);
+            transform: translateY(-8px) scale(1.02);
             border-color: var(--game1-color);
-            box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.8), 0 0 20px var(--game1-glow);
+            box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.8), 0 0 25px var(--game1-glow);
         }
-        .card-g1:hover .game-graphic { width: 45px; }
+        .card-g1:hover .game-graphic { width: 60px; }
         .card-g1 .btn { background: rgba(0, 242, 254, 0.1); border-color: rgba(0, 242, 254, 0.3); color: var(--game1-color); }
         .card-g1 .btn:hover { background: var(--game1-color); color: #000; box-shadow: 0 0 15px var(--game1-color); }
 
         .card-g2:hover {
-            transform: translateY(-6px) scale(1.02);
+            transform: translateY(-8px) scale(1.02);
             border-color: var(--game2-color);
-            box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.8), 0 0 20px var(--game2-glow);
+            box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.8), 0 0 25px var(--game2-glow);
         }
-        .card-g2:hover .game-graphic { width: 45px; }
+        .card-g2:hover .game-graphic { width: 60px; }
         .card-g2 .btn { background: rgba(241, 7, 163, 0.1); border-color: rgba(241, 7, 163, 0.3); color: var(--game2-color); }
         .card-g2 .btn:hover { background: var(--game2-color); color: white; box-shadow: 0 0 15px var(--game2-color); }
 
         .card-g3:hover {
-            transform: translateY(-6px) scale(1.02);
+            transform: translateY(-8px) scale(1.02);
             border-color: var(--game3-color);
-            box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.8), 0 0 20px var(--game3-glow);
+            box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.8), 0 0 25px var(--game3-glow);
         }
-Use code with caution.
-.card-g3:hover .game-graphic { width: 45px; }
-.card-g3 .btn { background: rgba(255, 107, 0, 0.1); border-color: rgba(255, 107, 0, 0.3); color: var(--game3-color); }
-.card-g3 .btn:hover { background: var(--game3-color); color: white; box-shadow: 0 0 15px var(--game3-color); }
-.card-g4:hover {
-transform: translateY(-6px) scale(1.02);
-border-color: var(--game4-color);
-box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.8), 0 0 20px var(--game4-glow);
-}
-.card-g4:hover .game-graphic { width: 45px; }
-.card-g4 .btn { background: rgba(34, 197, 94, 0.1); border-color: rgba(34, 197, 94, 0.3); color: var(--game4-color); }
-.card-g4 .btn:hover { background: var(--game4-color); color: white; box-shadow: 0 0 15px var(--game4-color); }
-.card:hover::before {
-transform: scale(1.5) translate(-5px, 5px);
-opacity: 0.1;
-}
-@media (max-width: 750px) {
-.container {
-grid-template-columns: repeat(2, 1fr);
-gap: 1rem;
-}
-h1 { font-size: 2.25rem; }
-}
+        .card-g3:hover .game-graphic { width: 60px; }
+        .card-g3 .btn { background: rgba(255, 107, 0, 0.1); border-color: rgba(255, 107, 0, 0.3); color: var(--game3-color); }
+        .card-g3 .btn:hover { background: var(--game3-color); color: white; box-shadow: 0 0 15px var(--game3-color); }
 
+        .card-g4:hover {
+            transform: translateY(-8px) scale(1.02);
+            border-color: var(--game4-color);
+            box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.8), 0 0 25px var(--game4-glow);
+        }
+        .card-g4:hover .game-graphic { width: 60px; }
+        .card-g4 .btn { background: rgba(34, 197, 94, 0.1); border-color: rgba(34, 197, 94, 0.3); color: var(--game4-color); }
+        .card-g4 .btn:hover { background: var(--game4-color); color: white; box-shadow: 0 0 15px var(--game4-color); }
 
-Access Required
-Enter your secret access key to play
+        .card:hover::before {
+            transform: scale(1.8) translate(-10px, 10px);
+            opacity: 0.12;
+        }
 
-Unlock
-Invalid Access Key!
+        @media (max-width: 750px) {
+            .container { 
+                grid-template-columns: repeat(2, 1fr); /* 2x2 grid format for smaller mobile devices */
+                gap: 1.25rem; 
+            }
+            h1 { font-size: 2.5rem; }
+        }
+    </style>
+</head>
+<body>
 
-A-Z Project
-Pick a game
-Football Bros
-Play
-Retro Bowl
-Play
-Basketball Bros
-Play
-Drive mad
-Play
+    <div class="header-container">
+        <h1>A-Z Project</h1>
+        <span class="subtitle">Pick a game</span>
+    </div>
 
-function checkKey() {
-const inputField = document.getElementById("key-input");
-const errorMessage = document.getElementById("error-message");
-const gateOverlay = document.getElementById("password-gate");
-if (inputField.value === "ABC123") {
-gateOverlay.style.display = "none";
-} else {
-errorMessage.style.display = "block";
-inputField.value = "";
-inputField.focus();
-}
-}
-// Handle Form Submission via Enter Key press
-document.getElementById("key-input").addEventListener("keypress", function(event) {
-if (event.key === "Enter") {
-checkKey();
-}
-});
+    <div class="container">
+        <!-- Game 1 Card -->
+        <div class="card card-g1">
+            <div class="game-graphic"></div>
+            <h2>Football Bros</h2>
+            <a href="./game1/" class="btn">Play</a>
+        </div>
+
+        <!-- Game 2 Card -->
+        <div class="card card-g2">
+            <div class="game-graphic"></div>
+            <h2>Retro Bowl</h2>
+            <a href="./game2/" class="btn">Play</a>
+        </div>
+
+        <!-- Game 3 Card -->
+        <div class="card card-g3">
+            <div class="game-graphic"></div>
+            <h2>Basketball Bros</h2>
+            <a href="./game3/" class="btn">Play</a>
+        </div>
+
+        <!-- Game 4 Card -->
+        <div class="card card-g4">
+            <div class="game-graphic"></div>
+            <h2>Drive mad</h2>
+            <a href="./game4/" class="btn">Play</a>
+        </div>
+    </div>
+
+</body>
+</html>
