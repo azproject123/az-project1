@@ -18,6 +18,8 @@
             --game1-hover: #1d4ed8;
             --game2-color: #ec4899;
             --game2-hover: #be185d;
+            --game3-color: #f97316;
+            --game3-hover: #ea580c;
         }
 
         body {
@@ -40,7 +42,7 @@
         h1 {
             font-size: 2.75rem;
             font-weight: 800;
-            margin: 0 0 2.5rem 0;
+            margin: 2.5rem 0;
             text-align: center;
             letter-spacing: -0.04em;
             background: linear-gradient(135deg, #fff 0%, #94a3b8 100%);
@@ -51,9 +53,9 @@
         .container {
             display: flex;
             gap: 2rem;
-            max-width: 800px;
+            max-width: 1100px;
             width: 100%;
-            padding: 0 1.5rem;
+            padding: 0 1.5rem 2.5rem 1.5rem;
             box-sizing: border-box;
         }
 
@@ -85,6 +87,12 @@
             box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7), 0 0 40px -10px rgba(236, 72, 153, 0.25);
         }
 
+        .card-g3:hover {
+            transform: translateY(-6px);
+            border-color: rgba(249, 115, 22, 0.4);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7), 0 0 40px -10px rgba(249, 115, 22, 0.25);
+        }
+
         .card h2 {
             margin: 0 0 2rem 0;
             font-size: 1.85rem;
@@ -112,10 +120,13 @@
         .card-g2 .btn { background-color: var(--game2-color); }
         .card-g2 .btn:hover { background-color: var(--game2-hover); transform: scale(1.02); }
 
-        @media (max-width: 600px) {
-            body { padding: 2rem 0; }
-            .container { flex-direction: column; gap: 1.5rem; }
-            h1 { font-size: 2.25rem; margin-bottom: 2rem; }
+        .card-g3 .btn { background-color: var(--game3-color); }
+        .card-g3 .btn:hover { background-color: var(--game3-hover); transform: scale(1.02); }
+
+        @media (max-width: 850px) {
+            .container { flex-direction: column; gap: 1.5rem; max-width: 500px; }
+            body { padding: 0; }
+            h1 { font-size: 2.25rem; margin: 2rem 0; }
             .card { padding: 2rem 1.5rem; }
         }
     </style>
@@ -135,6 +146,12 @@
         <div class="card card-g2">
             <h2>Retro Bowl</h2>
             <a href="./game2/" class="btn">Play</a>
+        </div>
+
+        <!-- Game 3 Card -->
+        <div class="card card-g3">
+            <h2>Basketball Bros</h2>
+            <a href="./game3/" class="btn">Play</a>
         </div>
     </div>
 
