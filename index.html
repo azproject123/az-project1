@@ -57,8 +57,66 @@
             text-shadow: 0 0 8px rgba(239, 68, 68, 0.5);
         }
 
+        /* Lock Screen Key System UI */
+        .lock-screen {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 14px;
+            padding: 3rem 2rem;
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+            box-shadow: 0 10px 40px -10px rgba(0,0,0,0.8);
+            margin-top: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .lock-screen h3 {
+            margin: 0;
+            font-size: 1.15rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: #e2e8f0;
+        }
+
+        .key-input {
+            width: 100%;
+            background: #000;
+            border: 1px solid #ef4444;
+            padding: 0.8rem;
+            border-radius: 8px;
+            color: #fff;
+            text-align: center;
+            font-size: 1rem;
+            outline: none;
+            box-sizing: border-box;
+        }
+
+        .lock-btn {
+            background: rgba(239, 68, 68, 0.1);
+            border: 1px solid #ef4444;
+            color: #ef4444;
+            padding: 0.75rem;
+            border-radius: 8px;
+            width: 100%;
+            cursor: pointer;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            transition: all 0.3s ease;
+        }
+
+        .lock-btn:hover {
+            background: #ef4444;
+            color: #05050f;
+            box-shadow: 0 0 15px #ef4444;
+        }
+
+        /* Container Hidden Until Unlocked */
         .container {
-            display: grid;
+            display: none;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
             gap: 1.75rem;
             width: 100%;
@@ -167,35 +225,76 @@
         <span class="subtitle">Pick a game</span>
     </div>
 
-    <div class="container">
+    <!-- Password Input UI Box -->
+    <div class="lock-screen" id="lockGate">
+        <h3>System Access Required</h3>
+        <input type="password" class="key-input" id="keyField" placeholder="Enter Password...">
+        <button class="lock-btn" onclick="verifyKey()">Unlock</button>
+    </div>
+
+    <!-- Main Arcade Portal -->
+    <div class="container" id="gameGrid">
         <!-- Game 1: Football Bros -->
         <div class="card" style="--theme-color: #00f2fe; --glow-color: rgba(0, 242, 254, 0.25);">
             <div class="game-graphic"></div>
             <h2>Football Bros</h2>
-            <a href="#" class="btn">Play Game</a>
+            <a href="game1/index.html" class="btn">Play Game</a>
         </div>
 
         <!-- Game 2: Retro Bowl -->
         <div class="card" style="--theme-color: #f107a3; --glow-color: rgba(241, 7, 163, 0.25);">
             <div class="game-graphic"></div>
             <h2>Retro Bowl</h2>
-            <a href="#" class="btn">Play Game</a>
+            <a href="game2/index.html" class="btn">Play Game</a>
         </div>
 
         <!-- Game 3: Basketball Bros -->
         <div class="card" style="--theme-color: #ff6b00; --glow-color: rgba(255, 107, 0, 0.25);">
             <div class="game-graphic"></div>
             <h2>Basketball Bros</h2>
-            <a href="#" class="btn">Play Game</a>
+            <a href="game3/index.html" class="btn">Play Game</a>
         </div>
 
         <!-- Game 4: Drive Mad -->
         <div class="card" style="--theme-color: #22c55e; --glow-color: rgba(34, 197, 94, 0.25);">
             <div class="game-graphic"></div>
             <h2>Drive Mad</h2>
-            <a href="#" class="btn">Play Game</a>
+            <a href="game4/index.html" class="btn">Play Game</a>
         </div>
     </div>
+
+    <script>
+        const lockGate = document.getElementById('lockGate');
+        const gameGrid = document.getElementById('gameGrid');
+        const keyField = document.getElementById('keyField');
+
+        function openPortal() {
+            lockGate.style.display = 'none';
+            gameGrid.style.display = 'grid';
+        }
+
+        // Keep it unlocked if they already typed the password
+        if (localStorage.getItem('unlocked_arcade') === 'true') {
+            openPortal();
+        }
+
+        function verifyKey() {
+            if (keyField.value === "abc123") {
+                localStorage.setItem('unlocked_arcade', 'true');
+                openPortal();
+            } else {
+                alert('Incorrect password entry!');
+                keyField.value = '';
+                keyField.focus();
+            }
+        }
+
+        keyField.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') {
+                verifyKey();
+            }
+        });
+    </script>
 
 </body>
 </html>
