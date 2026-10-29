@@ -22,6 +22,9 @@
             
             --game3-color: #ff6b00;
             --game3-glow: rgba(255, 107, 0, 0.25);
+
+            --game4-color: #22c55e;
+            --game4-glow: rgba(34, 197, 94, 0.25);
         }
 
         body {
@@ -125,6 +128,7 @@
         .card-g1::before { background: var(--game1-color); border: 4px dashed var(--game1-color); }
         .card-g2::before { background: var(--game2-color); border: 4px double var(--game2-color); }
         .card-g3::before { background: var(--game3-color); border: 4px dotted var(--game3-color); }
+        .card-g4::before { background: var(--game4-color); border: 4px dashed var(--game4-color); }
 
         /* Minimalist Abstract Graphic Blocks */
         .game-graphic {
@@ -137,6 +141,7 @@
         .card-g1 .game-graphic { background: var(--game1-color); box-shadow: 0 0 10px var(--game1-color); }
         .card-g2 .game-graphic { background: var(--game2-color); box-shadow: 0 0 10px var(--game2-color); }
         .card-g3 .game-graphic { background: var(--game3-color); box-shadow: 0 0 10px var(--game3-color); }
+        .card-g4 .game-graphic { background: var(--game4-color); box-shadow: 0 0 10px var(--game4-color); }
 
         .card h2 {
             margin: 0 0 1.75rem 0;
@@ -192,6 +197,15 @@
         .card-g3 .btn { background: rgba(255, 107, 0, 0.1); border-color: rgba(255, 107, 0, 0.3); color: var(--game3-color); }
         .card-g3 .btn:hover { background: var(--game3-color); color: white; box-shadow: 0 0 15px var(--game3-color); }
 
+        .card-g4:hover {
+            transform: translateY(-8px) scale(1.02);
+            border-color: var(--game4-color);
+            box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.8), 0 0 25px var(--game4-glow);
+        }
+        .card-g4:hover .game-graphic { width: 60px; }
+        .card-g4 .btn { background: rgba(34, 197, 94, 0.1); border-color: rgba(34, 197, 94, 0.3); color: var(--game4-color); }
+        .card-g4 .btn:hover { background: var(--game4-color); color: white; box-shadow: 0 0 15px var(--game4-color); }
+
         .card:hover::before {
             transform: scale(1.8) translate(-10px, 10px);
             opacity: 0.12;
@@ -225,11 +239,11 @@
             <a href="./game2/" class="btn">Play</a>
         </div>
 
-        <!-- Game 3 Card -->
-        <div class="card card-g3">
+        <!-- Game 4 Card -->
+        <div class="card card-g4">
             <div class="game-graphic"></div>
-            <h2>Basketball Bros</h2>
-            <a href="./game3/" class="btn">Play</a>
+            <h2>Drive mad</h2>
+            <a href="./game4/" class="btn">Play</a>
         </div>
     </div>
 
