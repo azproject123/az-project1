@@ -38,49 +38,59 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
+            justify-content: flex-start; /* Aligns layout elements from the top down */
             min-height: 100vh;
             overflow-x: hidden;
-            padding: 3rem 1rem;
+            padding: 2rem 1.5rem;
             box-sizing: border-box;
         }
 
+        /* Pushed Header To Extreme Top */
         .header-container {
             text-align: center;
-            margin-bottom: 3.5rem;
+            margin-top: 1rem;
+            margin-bottom: 4rem;
             position: relative;
+            width: 100%;
         }
 
         h1 {
-            font-size: 3rem;
+            font-size: 3.25rem;
             font-weight: 900;
             margin: 0;
             text-transform: uppercase;
-            letter-spacing: 0.15em;
-            background: linear-gradient(to right, #00f2fe, #f107a3, #ff6b00);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            filter: drop-shadow(0 2px 10px rgba(255,255,255,0.1));
+            letter-spacing: 0.12em;
+            color: #ffffff;
+            /* Creative Crimson Red Neon Glow */
+            text-shadow: 
+                0 0 7px #ef4444,
+                0 0 15px #ef4444,
+                0 0 30px #dc2626,
+                0 0 50px #991b1b;
         }
 
         .subtitle {
             font-size: 0.75rem;
             text-transform: uppercase;
             letter-spacing: 0.4em;
-            color: #475569;
-            margin-top: 0.5rem;
+            color: #ef4444;
+            margin-top: 0.75rem;
             display: block;
+            opacity: 0.8;
+            text-shadow: 0 0 8px rgba(239, 68, 68, 0.5);
         }
 
-        /* Smaller, Tight Grid system */
+        /* Balanced Dynamic Layout Grid */
         .container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(190px, 220px));
-            gap: 2rem;
+            /* Flexibly sizes and shifts content blocks together dynamically */
+            grid-template-columns: repeat(auto-fit, minmax(200px, 220px));
+            gap: 2.5rem;
             justify-content: center;
+            align-content: center;
             width: 100%;
-            max-width: 900px;
-            padding: 0 1rem;
+            max-width: 1000px;
+            margin: 0 auto;
             box-sizing: border-box;
         }
 
@@ -89,7 +99,7 @@
             background: var(--card-bg);
             border: 1px solid var(--card-border);
             border-radius: 14px;
-            padding: 2rem 1.25rem 1.5rem 1.25rem;
+            padding: 2.25rem 1.25rem 1.75rem 1.25rem;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -116,7 +126,7 @@
         .card-g2::before { background: var(--game2-color); border: 4px double var(--game2-color); }
         .card-g3::before { background: var(--game3-color); border: 4px dotted var(--game3-color); }
 
-        /* Minimalist Abstract Graphic Blocks (Replacing Emojis) */
+        /* Minimalist Abstract Graphic Blocks */
         .game-graphic {
             width: 44px;
             height: 4px;
@@ -129,7 +139,7 @@
         .card-g3 .game-graphic { background: var(--game3-color); box-shadow: 0 0 10px var(--game3-color); }
 
         .card h2 {
-            margin: 0 0 1.5rem 0;
+            margin: 0 0 1.75rem 0;
             font-size: 1.25rem;
             font-weight: 700;
             letter-spacing: -0.01em;
@@ -187,16 +197,16 @@
             opacity: 0.12;
         }
 
-        @media (max-width: 500px) {
-            .container { grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 1.25rem; }
-            h1 { font-size: 2.25rem; }
+        @media (max-width: 750px) {
+            .container { gap: 1.5rem; }
+            h1 { font-size: 2.5rem; }
         }
     </style>
 </head>
 <body>
 
     <div class="header-container">
-        <h1>A-Z Arcade</h1>
+        <h1>A-Z Project</h1>
         <span class="subtitle">Select Arena</span>
     </div>
 
